@@ -1,0 +1,83 @@
+/*
+dom is a api for manupulating xml and html ie  it is use to
+ add remove and modify part of document
+ dom give acess to javascript ,to change style,html element ,create new event,
+*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Welcome to events</h1>
+     <button id="btn" onclick="myfun1()"></button><br>
+     <button id="btn" onmousedown="myfun2()"></button><br>
+     <button id="btn" onmouseover ="myfun3()"></button><br>
+     <button id="btn" onmouseleave="myfun4()"></button><br>
+     <button id="btn" onmousewheel="myfun5()"></button><br>
+   //input event
+   <input type="text"  id="btn">
+    <script>
+  /*we can also write function this way
+  function ram(){
+    console.log("ram function")
+  }
+  */
+  
+    let ram = document.getElementById('btn')
+    ram.addEventListener('click',function myfun1(){
+        alert('button clicked')
+    })
+    ram.addEventListener('mousedown',function myfun2(){
+        console.log('mouse down event')
+    })
+    ram.addEventListener('mouseover',function myfun3(){
+        alert('button clicked mouseover')
+    })
+    ram.addEventListener('mouseleave',function myfun4(){
+        alert('button clicked mouse leave')
+    })
+    ram.addEventListener('mousewheel',function myfun5(){
+        alert('button clicked mouse wheel')
+    })
+    ram.addEventListener('load',function myfun1(){
+        alert('loaded sucessfully')
+    })
+
+    //for window
+    window.addEventListener('load',function(){
+        console.log('window loaded sucess')
+    })
+  window.addEventListener('scroll',function(){
+    console.log('scrolling the window')
+  })
+  window.addEventListener('wheel',function(event){
+    console.log('scrolling the window')
+    if (event.deltaY<0) {
+        console.log('scrolling up')
+    } else if(event.deltaX){
+        console.log('scrolling')
+    }
+    else{
+        console.log('no event')
+    }
+  })
+  ram.addEventListener('focus', function myblurfunc(){
+    ram.style.background = 'blue'
+         console.log('running focus function focus event')
+
+  })
+  ram.addEventListener('blur', function myblurfunc(){
+        ram.style.background = 'yellow'
+         console.log('running blur function focus event')
+  })
+  ram.addEventListener('submit', function myblurfunc(e){
+      e.preventDefault();
+         console.log('i cant run in console due to prevent')
+  })
+    </script>
+</body>
+</html>
